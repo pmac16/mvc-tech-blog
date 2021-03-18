@@ -18,7 +18,7 @@
         <a href="/">Home</a>
         {{#if loggedIn}}
         <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
@@ -35,6 +35,25 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+
+  <script> 
+    document.addEventListener("click", function() {
+      if(typeof timeOutObj != "undefined") {
+        clearTimeout(timeOutObj);
+      }
+      console.log("click");
+      timeOutObj = setTimeout(function() {
+        localStorage.clear();
+        fetch('/api/users/logout', {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        window.location='/login';
+        console.log("You've been logged out")
+      }, 1200000); //will expire after 10 seconds 
+    });
+  </script>
 </body>
+
 
 </html>

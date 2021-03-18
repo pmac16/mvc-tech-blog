@@ -3,11 +3,11 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment } = require('../../models');
 
 router.post('/', (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  // expects {title: 'Taskmaster goes public!', post_body: 'https://taskmaster.com/press', user_id: 1}
   if (req.session) {
     Post.create({
       title: req.body.title,
-      post_url: req.body.post_url,
+      post_body: req.body.postBody,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
