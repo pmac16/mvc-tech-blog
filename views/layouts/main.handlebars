@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Tech Blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  {{!-- CSS --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="public/stylesheets/materialize.css" type="css" rel="stylesheet" media="screen,projection"/>
+  <link href="public/stylesheets/style.css" type="css" rel="stylesheet" media="screen,projection"/>
 </head>
 
+
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Tech Blog</a>
-      </h1>
-      <nav>
-        <a href="/">Home</a>
+  <nav class="light-blue ligten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Tech Blog</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/"><i class="material-icons right">home</i></a></li>
         {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
+        <li><a href="/dashboard">Dashboard</a></li>
         <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <li><a href="/login">Log In</a></li>
         {{/if}}
-      </nav>
-    </header>
+      </ul>
+  </nav>
+  <div class="container">
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
+    
   </div>
   
   {{#if loggedIn}}
