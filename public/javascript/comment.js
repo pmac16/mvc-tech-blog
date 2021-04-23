@@ -26,4 +26,56 @@ async function commentFormHandler(event) {
   }
 }
 
+async function updatePost(event) {
+  event.preventDefault();
+
+  const post_title = document.querySelector('textarea[name="post-title"]').value.trim();
+  const post_body = document.querySelector('textarea[name="post-body"]').value.trim();
+  const post_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+
+  if (post_title && post_body) {
+    const response = await fetch(`/api/posts/${post_id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        title: post_title,
+        post_body: post_body
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
+
+}
+
+async function deletePost(event) {
+  event.preventDefault();
+
+  const post_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+
+    const response = await fetch(`/api/posts/${post_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+}
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+document.querySelector('.update-post').addEventListener('submit', updatePost);
+document.querySelector('#deleteButton').addEventListener('click', deletePost);

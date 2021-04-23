@@ -1,6 +1,17 @@
 {{> post-info post}}
 
 {{#if loggedIn}}
+
+<form class="update-post">
+  <div>
+    <textarea name="post-title">{{post.title}}</textarea>
+    <textarea name="post-body">{{post.post_body}}</textarea>
+  </div>
+  <button type="submit">Update</button>
+  <button type="button" id="deleteButton">Delete</button>
+
+</form>
+
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
@@ -8,7 +19,7 @@
 
   <div>
     <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    
   </div>
 </form>
 {{/if}}
@@ -17,5 +28,4 @@
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
 {{/if}}

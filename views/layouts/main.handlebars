@@ -6,31 +6,31 @@
   <title>Tech Blog</title>
 
   {{!-- CSS --}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="public/stylesheets/materialize.css" type="css" rel="stylesheet" media="screen,projection"/>
   <link href="public/stylesheets/style.css" type="css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 
 <body>
-  <nav class="light-blue ligten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Tech Blog</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/"><i class="material-icons right">home</i></a></li>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a href="/">Tech Blog</a>
+      </h1>
+      <nav>
         {{#if loggedIn}}
-        <li><a href="/dashboard">Dashboard</a></li>
+        <a href="/dashboard">Dashboard</a>
         <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
-        <li><a href="/login">Log In</a></li>
+        <a href="/login">Log In</a>
         {{/if}}
-      </ul>
-  </nav>
-  <div class="container">
+      </nav>
+    </header>
     <main>
-      {{{ body }}}
+      {{{body}}}
     </main>
-    
+    <footer>
+      Thanks for visiting!
+    </footer>
   </div>
   
   {{#if loggedIn}}
