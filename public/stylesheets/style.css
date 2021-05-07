@@ -12,17 +12,18 @@ body, html {
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: #ffffff;
   font-weight: bold;
   transition: color .1s;
 }
+
 
 a:hover {
   color: #3486eb;
 }
 
 button {
-  background-color: #225ca3;
+  background-color: #51c4d3;
   border: 0;
   padding: 1%;
   color: white;
@@ -75,7 +76,8 @@ form label {
 }
 
 header {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #333 ;
+  background-color: #132c33;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +85,11 @@ header {
 }
 
 header h1 {
-  font-size: 1em;
+  font-size: 1.5em;
+}
+
+h1, h2 {
+  color: #126e82;
 }
 
 main {
@@ -97,7 +103,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: #ffffff;
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -117,15 +123,22 @@ main {
   background-color: #ff643d;
 }
 
+
 .post {
   margin-bottom: 2%;
   line-height: 150%;
 }
 
+
+
+.post-title {
+  color: #126e82;
+}
+
 .post .title span {
   font-style: italic;
   font-size: 90%;
-  color: #7d7d7d;
+  color: #333;
 }
 
 .edit-link {
@@ -133,14 +146,6 @@ main {
   margin: -1.5% 0 2% 0;
 }
 
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
-}
 
 .comment-form {
   margin-bottom: 5%;
@@ -151,8 +156,12 @@ main {
   margin-bottom: 1%;
 }
 
+.comment-title {
+  color: #51c4d3;
+}
+
 .comment:nth-child(odd) {
-  background-color: #fff5eb;
+  background-color: #d8e3e7;
 }
 
 .comment .meta {
@@ -170,7 +179,7 @@ main {
 }
 
 footer {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #d8e3e7;
   display: flex;
   justify-content: center;
   padding: 1%;
